@@ -19,6 +19,12 @@ kotlin example project.
 互操作性：完全兼容Java
 工具友好：任何Java IDE或者命令行构建
 ```
+
+###### Tips 
+```aidl
+
+```
+
 ###### 关键字
 ```
 声明：

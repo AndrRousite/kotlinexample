@@ -6,11 +6,15 @@ import io.reactivex.disposables.Disposable
 /**
  * Created by liu-feng on 2017/12/19.
  */
-class BasePresenter<M : IModel, V : IView> : IPresenter<M, V> {
+open class BasePresenter<M : IModel, V : IView> : IPresenter<M, V> {
     var mView: V? = null
-        private set
+        protected set
     var mModel: M? = null
-        private set
+        protected set
+
+    override fun attach(mView: V) {
+        this.mView = mView
+    }
 
     override fun attach(mView: V, mModel: M) {
         this.mView = mView

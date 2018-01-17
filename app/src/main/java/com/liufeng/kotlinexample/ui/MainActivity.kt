@@ -12,4 +12,5 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         tv_content.text = "Hello Kotlin Example"
     }
+
 }

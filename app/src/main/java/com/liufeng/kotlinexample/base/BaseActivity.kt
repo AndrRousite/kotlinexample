@@ -2,6 +2,7 @@ package com.liufeng.kotlinexample.base
 
 import android.content.Context
 import android.os.Bundle
+import android.support.annotation.LayoutRes
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.view.inputmethod.InputMethodManager
@@ -20,7 +21,7 @@ abstract class BaseActivity : AppCompatActivity() {
         initData()
     }
 
-
+    @LayoutRes
     abstract fun getLayoutId(): Int
 
     abstract fun initView()
