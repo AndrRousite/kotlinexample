@@ -18,7 +18,7 @@ abstract class BaseFragment : Fragment() {
     private var prepareView = false
     private var prepareData = false
 
-    private var mLayoutStatusView: MultipleStatusView? = null
+    protected var mLayoutStatusView: MultipleStatusView? = null
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater?.inflate(getLayoutId(), null)

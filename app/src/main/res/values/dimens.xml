@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="toolbar_height">45dp</dimen>
+    <dimen name="df_title">16sp</dimen>
+    <dimen name="df_content">14sp</dimen>
+    <dimen name="df_label">12sp</dimen>
+    <dimen name="df_padding_h">16dp</dimen>
+    <dimen name="df_padding_v">10dp</dimen>
+</resources>

@@ -2,4 +2,7 @@
     <string name="app_name">KotlinExample</string>
 
     <string name="splash">每日精选视频，让你大开眼界</string>
+
+
+    <string name="search_transition_name">transition_reveal</string>
 </resources>
