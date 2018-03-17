@@ -1,4 +1,4 @@
-package com.liufeng.kotlinexample.base
+package me.letion.geetionlib.base
 
 import android.os.Bundle
 import android.support.annotation.LayoutRes
@@ -7,8 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import com.liufeng.kotlinexample.KotlinApplication
 import com.liufeng.multiplestatusview.MultipleStatusView
+import me.letion.geetionlib.KotlinApplication
 
 /**
  * Created by liu-feng on 2017/12/19.

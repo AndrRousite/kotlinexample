@@ -1,0 +1,81 @@
+apply plugin: 'com.android.library'
+
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions' //扩展插件
+apply plugin: 'kotlin-kapt' //kapt3插件
+
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                includeCompileClasspath true
+            }
+        }
+
+        buildConfigField 'String', 'LOG_TAG', rootProject.ext.android["LOG_TAG"]
+
+    }
+
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+
+    //kotlin 支持库
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+
+    // Support库
+    compile rootProject.ext.supportLibs
+    // 网络请求库
+    compile rootProject.ext.networkLibs
+    // RxJava2
+    compile rootProject.ext.rxJavaLibs
+    // leakCanary
+    debugImplementation rootProject.ext.leakCanary.canaryDebug
+    releaseImplementation rootProject.ext.leakCanary.canaryRelease
+    // glide
+    compile rootProject.ext.otherLibs
+    //GlideOkHttp
+    compile(rootProject.ext.glideOkhttp) {
+        exclude group: 'glide-parent'
+    }
+    // glideCompiler APT dependencies(Kotlin内置的注解处理器)
+    kapt rootProject.ext.annotationProcessorLibs
+
+    //smartRefreshLayout 下拉刷新
+    compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.3'
+    compile 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.3'
+    //Banner
+    compile 'cn.bingoogolapple:bga-banner:2.1.8@aar'
+    //运行时权限
+    compile 'me.weyye.hipermission:library:1.0.7'
+    //Logger
+    compile 'com.orhanobut:logger:2.1.1'
+    compile project(':multiplestatusview')
+}

@@ -1,7 +1,7 @@
 package com.hazz.kotlinmvp.net.exception
 
 /**
- * Created by xuhao on 2017/12/5.
+ * Created by liu-feng on 2017/12/5.
  * desc:
  */
 class ApiException : RuntimeException {

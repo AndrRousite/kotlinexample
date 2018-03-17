@@ -1,4 +1,4 @@
-package com.liufeng.kotlinexample
+package me.letion.geetionlib
 
 import android.app.Activity
 import android.app.Application
@@ -42,7 +42,7 @@ class KotlinApplication : Application() {
                 .build()
         Logger.addLogAdapter(object : AndroidLogAdapter(formatStrategy) {
             override fun isLoggable(priority: Int, tag: String?): Boolean {
-                return Constants.DEBUG
+                return BuildConfig.DEBUG
             }
         })
 

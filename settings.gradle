@@ -1,1 +1,1 @@
-include ':app', ':multiplestatusview'
+include ':app', ':multiplestatusview', ':geetionlib'

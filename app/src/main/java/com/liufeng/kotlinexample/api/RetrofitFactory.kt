@@ -1,8 +1,8 @@
 package com.liufeng.kotlinexample.api
 
-import com.liufeng.kotlinexample.KotlinApplication
-import com.liufeng.kotlinexample.util.NetworkUtils
-import com.liufeng.kotlinexample.util.SPUtils
+import me.letion.geetionlib.KotlinApplication
+import me.letion.geetionlib.util.TNetwork
+import me.letion.geetionlib.util.TSP
 import okhttp3.*
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit
 object RetrofitFactory {
     private var client: OkHttpClient? = null
     private var retrofit: Retrofit? = null
-    private var token: String by SPUtils("token", "")
+    private var token: String by TSP("token", "")
     val service: ApiService by lazy { getRetrofit()!!.create(ApiService::class.java)}
 
     private fun getRetrofit(): Retrofit? {
@@ -91,21 +91,21 @@ object RetrofitFactory {
     private fun addChaceInterceptor(): Interceptor {
         return Interceptor { chain ->
             var request = chain.request()
-            if (!NetworkUtils.isNetworkAvailable(KotlinApplication.context)) {
+            if (!TNetwork.isNetworkAvailable(KotlinApplication.context)) {
                 request = request.newBuilder()
                         .cacheControl(CacheControl.FORCE_CACHE)
                         .build()
             }
             val response = chain.proceed(request)
-            if (NetworkUtils.isNetworkAvailable(KotlinApplication.context)) {
+            if (TNetwork.isNetworkAvailable(KotlinApplication.context)) {
                 val maxAge = 0
-                response.newBuilder().header("Cache-Control", "public, max-age=" + maxAge)
+                response.newBuilder().header("Cache-Control", "public, max-age=$maxAge")
                         .removeHeader("Retrofit")// 清除头信息，因为服务器如果不支持，会返回一些干扰信息，不清除下面无法生效
                         .build()
             } else {
                 // 无网络
                 val maxStale = 60 * 60 * 24 * 28
-                response.newBuilder().header("Cache-Control", "public, only-if-cached, max-stale=" + maxStale)
+                response.newBuilder().header("Cache-Control", "public, only-if-cached, max-stale=$maxStale")
                         .removeHeader("nyn")
                         .build()
             }

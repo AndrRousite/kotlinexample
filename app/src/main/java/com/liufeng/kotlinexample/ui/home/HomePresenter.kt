@@ -1,8 +1,8 @@
 package com.liufeng.kotlinexample.ui.home
 
 import com.hazz.kotlinmvp.net.exception.ExceptionHandle
-import com.liufeng.kotlinexample.base.BasePresenter
 import com.liufeng.kotlinexample.bean.HomeEntity
+import me.letion.geetionlib.base.BasePresenter
 
 /**
  * Created by liu-feng on 2018/1/17.

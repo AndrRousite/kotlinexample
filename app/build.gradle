@@ -12,6 +12,10 @@ android {
         versionCode rootProject.ext.android.versionCode
         versionName rootProject.ext.android.versionName
 
+        // 实现毛玻璃那种透明的效果需要添加的库
+        renderscriptTargetApi 19
+        renderscriptSupportModeEnabled true    // Enable RS support
+
         javaCompileOptions {
             annotationProcessorOptions {
                 includeCompileClasspath true
@@ -56,34 +60,6 @@ dependencies {
     androidTestImplementation('com.android.support.test.espresso:espresso-core:3.0.1') {
         exclude group: 'com.android.support', module: 'support-annotations'
     }
-    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-    // Support库
-    implementation rootProject.ext.supportLibs
-    // 网络请求库
-    implementation rootProject.ext.networkLibs
-    // RxJava2
-    implementation rootProject.ext.rxJavaLibs
-    // glide etc.
-    implementation rootProject.ext.otherLibs
-    // APT dependencies(Kotlin内置的注解处理器)
-    kapt rootProject.ext.annotationProcessorLibs
-    //GlideOkHttp
-    implementation(rootProject.ext.glideOkhttp) {
-        exclude group: 'glide-parent'
-    }
-    //运行时权限
-    implementation 'me.weyye.hipermission:library:1.0.7'
-    //Logger
-    implementation 'com.orhanobut:logger:2.1.1'
-    //leakCanary
-    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.5.4'
-    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
-    implementation project(':multiplestatusview')
-
-    //smartRefreshLayout 下拉刷新
-    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.3'
-    implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.3'
-    //Banner
-    implementation 'cn.bingoogolapple:bga-banner:2.1.8@aar'
+    compile project(':geetionlib')
 }

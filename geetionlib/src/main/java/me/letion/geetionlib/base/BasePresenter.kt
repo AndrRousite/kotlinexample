@@ -1,4 +1,4 @@
-package com.liufeng.kotlinexample.base
+package me.letion.geetionlib.base
 
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable

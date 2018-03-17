@@ -1,9 +1,9 @@
 package com.liufeng.kotlinexample.ui.home
 
-import com.liufeng.kotlinexample.base.IModel
-import com.liufeng.kotlinexample.base.IView
 import com.liufeng.kotlinexample.bean.HomeEntity
 import io.reactivex.Observable
+import me.letion.geetionlib.base.IModel
+import me.letion.geetionlib.base.IView
 
 /**
  * Created by liu-feng on 2018/1/17.

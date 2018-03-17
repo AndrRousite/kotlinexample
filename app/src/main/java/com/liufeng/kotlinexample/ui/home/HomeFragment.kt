@@ -7,11 +7,13 @@ import android.support.v4.content.ContextCompat.getColor
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import com.liufeng.kotlinexample.R
-import com.liufeng.kotlinexample.base.BaseFragment
+import me.letion.geetionlib.base.BaseFragment
 import com.liufeng.kotlinexample.bean.HomeEntity
-import com.liufeng.kotlinexample.util.StatusBarUtils
+import me.letion.geetionlib.util.TStatusBar
 import com.scwang.smartrefresh.header.MaterialHeader
 import kotlinx.android.synthetic.main.fragment_home.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 /**
  * Created by liu-feng on 2018/1/17.
@@ -20,7 +22,10 @@ class HomeFragment : BaseFragment(), HomeContract.View {
     private var mRefreshing = false
     private var mLoadMoreing = false
     private var mMaterialHeader: MaterialHeader? = null
+    private var mHomeAdapter: HomeAdapter? = null
     private val mPresenter by lazy { HomePresenter() }
+    private val linearLayoutManager by lazy { LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false) }
+    private val simpleDateFormat by lazy { SimpleDateFormat("- MMM. dd, 'Brunch' -", Locale.ENGLISH) }
 
     override fun getLayoutId(): Int = R.layout.fragment_home
 
@@ -37,20 +42,20 @@ class HomeFragment : BaseFragment(), HomeContract.View {
 //        refreshView.setPrimaryColors(R.color.color_light_black, R.color.color_title_bg)
 
         // 状态栏透明和间距处理
-        StatusBarUtils.darkMode(activity)
-        StatusBarUtils.setPaddingSmart(activity, toolbar)
+        TStatusBar.darkMode(activity)
+        TStatusBar.setPaddingSmart(activity, toolbar)
 
         iv_search.setOnClickListener {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                val options = ActivityOptionsCompat.makeSceneTransitionAnimation(activity, iv_search, iv_search.transitionName)
-                startActivity(Intent(activity, SearchActivity::class.java), options.toBundle())
-            } else {
-                startActivity(Intent(activity, SearchActivity::class.java))
-            }
+            //            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//                val options = ActivityOptionsCompat.makeSceneTransitionAnimation(activity, iv_search, iv_search.transitionName)
+//                startActivity(Intent(activity, SearchActivity::class.java), options.toBundle())
+//            } else {
+//                startActivity(Intent(activity, SearchActivity::class.java))
+//            }
         }
 
         // recycler view 滚动监听
-        recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener(){
+        recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
                 super.onScrollStateChanged(recyclerView, newState)
                 if (newState == RecyclerView.SCROLL_STATE_IDLE) {

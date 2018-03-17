@@ -1,4 +1,4 @@
-package com.liufeng.kotlinexample.util
+package me.letion.geetionlib.util
 
 import android.annotation.SuppressLint
 import android.app.ActivityManager
@@ -9,7 +9,7 @@ import java.security.MessageDigest
 /**
  * Created by liu-feng on 2017/12/19.
  */
-class AppUtils private constructor() {
+class TDevice private constructor() {
 
 
     init {
@@ -24,7 +24,7 @@ class AppUtils private constructor() {
          * @param context 上下文
          * @return 当前版本Code
          */
-        fun getVerCode(context: Context): Int {
+        fun getVersionCode(context: Context): Int {
             var verCode = -1
             try {
                 val packageName = context.packageName
@@ -43,7 +43,7 @@ class AppUtils private constructor() {
          *
          * @return 最大内存
          */
-        val maxMemory: Long
+        val getMaxMemory: Long
             get() = Runtime.getRuntime().maxMemory() / 1024
 
 
@@ -53,7 +53,7 @@ class AppUtils private constructor() {
          * @param context 上下文
          * @return 当前版本信息
          */
-        fun getVerName(context: Context): String {
+        fun getVersionName(context: Context): String {
             var verName = ""
             try {
                 val packageName = context.packageName
@@ -75,7 +75,7 @@ class AppUtils private constructor() {
                  * @param pkgName 包名
                  * @return 返回应用的签名
                  */
-        fun getSign(context: Context, pkgName: String): String? {
+        fun getAppSign(context: Context, pkgName: String): String? {
             return try {
                 @SuppressLint("PackageManagerGetSignatures") val pis = context.packageManager
                         .getPackageInfo(pkgName,
@@ -142,7 +142,7 @@ class AppUtils private constructor() {
          *
          * @return 如API 17 则返回 17
          */
-        val sdkVersion: Int
+        val getSdkVersion: Int
             get() = android.os.Build.VERSION.SDK_INT
     }
 

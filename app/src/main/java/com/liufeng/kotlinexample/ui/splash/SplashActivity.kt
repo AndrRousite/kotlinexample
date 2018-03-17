@@ -6,13 +6,13 @@ import android.content.Intent
 import android.graphics.Typeface
 import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
-import com.liufeng.kotlinexample.KotlinApplication
 import com.liufeng.kotlinexample.R
-import com.liufeng.kotlinexample.base.BaseActivity
 import com.liufeng.kotlinexample.ui.MainActivity
-import com.liufeng.kotlinexample.util.AppUtils
 import com.orhanobut.logger.Logger
 import kotlinx.android.synthetic.main.activity_splash.*
+import me.letion.geetionlib.KotlinApplication
+import me.letion.geetionlib.base.BaseActivity
+import me.letion.geetionlib.util.TDevice
 import me.weyye.hipermission.HiPermission
 import me.weyye.hipermission.PermissionCallback
 import me.weyye.hipermission.PermissionItem
@@ -42,7 +42,7 @@ class SplashActivity : BaseActivity() {
     override fun initView() {
         tv_app_name.typeface = textTypeface
         tv_splash_desc.typeface = descTypeFace
-        tv_version_name.text = "v${AppUtils.getVerName(KotlinApplication.context)}"
+        tv_version_name.text = "v${TDevice.getVersionName(KotlinApplication.context)}"
 
         //渐变展示启动屏
         alphaAnimation = AlphaAnimation(0.3f, 1.0f)

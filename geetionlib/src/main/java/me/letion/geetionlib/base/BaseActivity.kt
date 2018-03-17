@@ -1,4 +1,4 @@
-package com.liufeng.kotlinexample.base
+package me.letion.geetionlib.base
 
 import android.content.Context
 import android.os.Bundle
@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
-import com.liufeng.kotlinexample.KotlinApplication
+import me.letion.geetionlib.KotlinApplication
 
 /**
  * Created by liu-feng on 2017/12/19.

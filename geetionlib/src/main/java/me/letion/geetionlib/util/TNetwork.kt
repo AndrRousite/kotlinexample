@@ -1,4 +1,4 @@
-package com.liufeng.kotlinexample.util
+package me.letion.geetionlib.util
 
 import android.content.Context
 import android.net.ConnectivityManager
@@ -12,9 +12,9 @@ import java.net.URL
 
 
 /**
- * Created by xuhao on 2017/11/13.
+ * Created by liu-feng on 2017/11/13.
  */
-class NetworkUtils {
+class TNetwork {
 
     companion object {
 

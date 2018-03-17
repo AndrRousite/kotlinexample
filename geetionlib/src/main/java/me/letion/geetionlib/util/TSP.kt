@@ -1,17 +1,17 @@
-package com.liufeng.kotlinexample.util
+package me.letion.geetionlib.util
 
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.SharedPreferences
-import com.liufeng.kotlinexample.KotlinApplication
+import me.letion.geetionlib.KotlinApplication
 import java.io.*
 import kotlin.reflect.KProperty
 
 /**
- * Created by xuhao on 2017/12/11.
+ * Created by liu-feng on 2017/12/11.
  * desc:kotlin委托属性+SharedPreference实例
  */
-class SPUtils<T>(val name:String, private val default:T) {
+class TSP<T>(val name:String, private val default:T) {
 
 
     companion object {

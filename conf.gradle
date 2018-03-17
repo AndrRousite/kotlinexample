@@ -6,23 +6,28 @@ ext {
             minSdkVersion    : 15,
             targetSdkVersion : 26,
             versionCode      : 1,
-            versionName      : "1.0"
+            versionName      : "1.0",
+
+            LOG_TAG          : "\"Letion\""
     ]
 
     dependVersion = [
             androidSupportSdkVersion: "26.0.2",
+            constraintLayoutVersion : "1.0.2",
             retrofitSdkVersion      : "2.3.0",
             glideSdkVersion         : "4.0.0",
             rxJava                  : "2.1.5",
-            rxAndroid               : "2.0.1"
+            rxAndroid               : "2.0.1",
+            leakCanary              : "1.5.4"
     ]
 
     supportDeps = [
-            supportv4  : "com.android.support:support-v4:$dependVersion.androidSupportSdkVersion",
-            appcompatv7: "com.android.support:appcompat-v7:$dependVersion.androidSupportSdkVersion",
-            cardview   : "com.android.support:cardview-v7:$dependVersion.androidSupportSdkVersion",
-            design     : "com.android.support:design:$dependVersion.androidSupportSdkVersion",
-            annotations: "com.android.support:support-annotations:$dependVersion.androidSupportSdkVersion"
+            supportv4       : "com.android.support:support-v4:$dependVersion.androidSupportSdkVersion",
+            appcompatv7     : "com.android.support:appcompat-v7:$dependVersion.androidSupportSdkVersion",
+            cardview        : "com.android.support:cardview-v7:$dependVersion.androidSupportSdkVersion",
+            design          : "com.android.support:design:$dependVersion.androidSupportSdkVersion",
+            annotations     : "com.android.support:support-annotations:$dependVersion.androidSupportSdkVersion",
+            constraintlayout: "com.android.support.constraint:constraint-layout:$dependVersion.constraintLayoutVersion"
     ]
 
     retrofit = [
@@ -37,6 +42,11 @@ ext {
             rxAndroid: "io.reactivex.rxjava2:rxandroid:$dependVersion.rxAndroid"
     ]
 
+    leakCanary = [
+            canaryDebug  : "com.squareup.leakcanary:leakcanary-android:$dependVersion.leakCanary",
+            canaryRelease: "com.squareup.leakcanary:leakcanary-android-no-op:$dependVersion.leakCanary"
+    ]
+
     glide = "com.github.bumptech.glide:glide:$dependVersion.glideSdkVersion"
     glideCompiler = "com.github.bumptech.glide:compiler:$dependVersion.glideSdkVersion"
     glideOkhttp = "com.github.bumptech.glide:okhttp3-integration:$dependVersion.glideSdkVersion"
@@ -48,4 +58,5 @@ ext {
 
     // APT
     annotationProcessorLibs = [glideCompiler]
+
 }

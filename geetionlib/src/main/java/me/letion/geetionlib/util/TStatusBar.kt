@@ -1,4 +1,4 @@
-package com.liufeng.kotlinexample.util
+package me.letion.geetionlib.util
 
 import android.annotation.TargetApi
 import android.app.Activity
@@ -16,10 +16,11 @@ import android.view.WindowManager
 import java.util.regex.Pattern
 
 /**
+ * Created by liu-feng on 2017/11/13.
  * 状态栏透明
  */
 
-class StatusBarUtils {
+class TStatusBar {
     companion object {
         private var DEFAULT_COLOR = 0
         private var DEFAULT_ALPHA = 0f//Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP ? 0.2f : 0.3f;
