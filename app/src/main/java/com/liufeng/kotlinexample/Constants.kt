@@ -5,7 +5,7 @@ package com.liufeng.kotlinexample
  */
 class Constants private constructor() {
     companion object {
-        val DEBUG = true
-        val SP_PROPERTIES = "properties.pro"
+        val DEBUG = BuildConfig.DEBUG
+        const val SP_PROPERTIES = "properties.pro"
     }
 }
